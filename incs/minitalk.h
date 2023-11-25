@@ -11,22 +11,24 @@
 #include <wchar.h>
 #include <stddef.h>
 
-#define S_WLC "Welcome to the server!"
-#define S_PID "Server PID: %d\n"
-#define S_CHEV "Received end of transmission\n"
+#define S_WLC "\n\033[0;94mWelcome to the server!\033[0m"
+#define S_PID "\033[0;96mServer PID: %d\033[0m\n"
+#define S_END_TRANS "\033[0;90mReceived end of transmission\033[0m\n"
 
-# define C_ERROR "\n\033[0;91mAchtung Achtung !\033[0m"
-# define C_ARGS "\033[38;5;214mAdd the server PID and a string или котика:)))\033[0m"
-# define C_EX_ARGS "\033[0;92mExample : ./client 4242 \"To write a message use double quotation marks\"\033[0m\n"
+#define C_ERROR "\n\033[0;91mAchtung Achtung !\033[0m"
+#define C_ARGS "\033[38;5;214mAdd the server PID and a string или котика:)))\033[0m"
+#define C_EX_ARGS "\033[0;92mExample : ./client 4242 \"To write a message use double quotation marks\"\033[0m\n"
+
 
 int ft_atoi_v(const char *str);
-void    ft_send_bit(int server_pid, wchar_t c);
+void ft_send_bit(int server_pid, char c);
 void	ft_putendl_fd_v(const char *s, int fd);
 
-void ft_handle_signal(int sig, siginfo_t *siginfo, void *context);
-void ft_print_error(const char *error_message);
-void ft_print_args_error(void);
+size_t ft_wstrlen(const wchar_t *wstr);
+void ft_handle_signal(int signal, siginfo_t *siginfo, void *cont);
 
-void ft_send_message(int server_pid, char *message);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+
 
 #endif

@@ -23,37 +23,22 @@ int	ft_atoi_v(const char *str)
 	return (result);
 }
 
-void ft_send_bit(int server_pid, wchar_t c)
+void ft_send_bit(int server_pid, char c)
 {
-    size_t index_bit;
+	int	index_bit;
 
-    index_bit = 0;
-    while (index_bit < sizeof(wchar_t) * 8) {
-        if (c & (1ULL << index_bit))
-            kill(server_pid, SIGUSR1);
-        else
-            kill(server_pid, SIGUSR2);
-        usleep(500);
-        index_bit++;
-    }
+	index_bit = 0;
+	while (index_bit < 8)
+	{
+		if (c & (0x01 << index_bit))
+			kill(server_pid, SIGUSR1);
+		else
+			kill(server_pid, SIGUSR2);
+		usleep(200);
+		index_bit++;
+	}
 }
 
-void	ft_putendl_fd_v(const char *s, int fd)
-{
-	size_t	i;
-
-	if (!s)
-	{
-		return ;
-	}
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, "\n", 1);
-}
 
 int main(int ac, char **av)
 {
