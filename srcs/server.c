@@ -2,7 +2,6 @@
 
 #include "../incs/minitalk.h"
 
-#include "../incs/minitalk.h"
 
 void ft_handle_signal(int sig, siginfo_t *siginfo, void *context)
 {

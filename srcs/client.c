@@ -69,7 +69,7 @@ int main(int ac, char **av)
 			ft_send_bit(server_pid, av[2][i]);
 			i++;
 		}
-		ft_send_bit(server_pid, 10);
+		ft_send_bit(server_pid, L'\n');
 	}
 	else
 	{
