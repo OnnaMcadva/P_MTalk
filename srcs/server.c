@@ -1,14 +1,9 @@
 
 
-#include "../incs/minitalk.h"
 
-size_t ft_wstrlen(const wchar_t *wstr)
-{
-    size_t counter = 0;
-    while (wstr[counter])
-        counter++;
-    return counter;
-}
+
+
+#include "../incs/minitalk.h"
 
 void	ft_handle_signal(int signal, siginfo_t *siginfo, void *cont)
 {
@@ -37,7 +32,8 @@ int	main(void)
 
 	pid = getpid();
 	ft_putendl_fd_v(S_WLC, 1);
-	printf(S_PID, pid); // ИЗМЕНИТЬ НА ФТ!!!!
+    ft_putstr_fd(S_PID, 1);
+    ft_putnbr_fd_v(pid, 1);
 	ft_putstr_fd(S_END_TRANS, 1);
 
 	sa.sa_flags = SA_SIGINFO;
