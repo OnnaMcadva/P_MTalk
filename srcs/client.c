@@ -1,5 +1,8 @@
 
 
+
+
+
 #include "../incs/minitalk.h"
 
 int	ft_atoi_v(const char *str)
@@ -54,7 +57,7 @@ int main(int ac, char **av)
 			ft_send_bit(server_pid, av[2][i]);
 			i++;
 		}
-		ft_send_bit(server_pid, L'\n');
+		ft_send_bit(server_pid, '\n');
 	}
 	else
 	{
