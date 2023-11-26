@@ -44,7 +44,7 @@ void	ft_send_bit(int server_pid, char c)
 			kill(server_pid, SIGUSR1);
 		else
 			kill(server_pid, SIGUSR2);
-		usleep(500);
+		usleep(1000);
 		index_bit++;
 	}
 }
