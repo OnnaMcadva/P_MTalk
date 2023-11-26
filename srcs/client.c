@@ -1,7 +1,14 @@
-
-
-
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: annavm <annavm@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/26 19:31:13 by annavm            #+#    #+#             */
+/*   Updated: 2023/11/26 19:31:19 by annavm           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../incs/minitalk.h"
 
@@ -9,12 +16,12 @@ int	ft_atoi_v(const char *str)
 {
 	int	result;
 
-    if (str == NULL)
+	if (str == NULL)
 	{
-        return (0);
+		return (0);
 	}
 	result = 0;
-	while (*str == ' ' || *str == '-' || *str == '+' || (9 <= *str && *str <= 13))
+	while (*str == ' ' || (9 <= *str && *str <= 13))
 	{
 		str++;
 	}
@@ -26,7 +33,7 @@ int	ft_atoi_v(const char *str)
 	return (result);
 }
 
-void ft_send_bit(int server_pid, char c)
+void	ft_send_bit(int server_pid, char c)
 {
 	int	index_bit;
 
@@ -42,15 +49,14 @@ void ft_send_bit(int server_pid, char c)
 	}
 }
 
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    int	i;
-    int	server_pid;
+	int	i;
+	int	server_pid;
 
-    i = 0;
-    server_pid = ft_atoi_v(av[1]);
-    if (ac == 3 && server_pid > 1)
+	i = 0;
+	server_pid = ft_atoi_v(av[1]);
+	if (ac == 3 && server_pid > 1)
 	{
 		while (av[2][i])
 		{
