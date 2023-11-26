@@ -25,7 +25,7 @@ void	ft_handle_signal(int signal, siginfo_t *siginfo, void *cont)
 	if (bit == 8)
 	{
 		ft_putchar_fd(i, 1);
-		if (i == 10)
+		if (i == '\n')
 			ft_putstr_fd(S_END_TRANS, 1);
 		bit = 0;
 		i = 0;
