@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annavm <annavm@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anmakaro <anmakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 19:31:25 by annavm            #+#    #+#             */
-/*   Updated: 2023/11/26 19:31:29 by annavm           ###   ########.fr       */
+/*   Created: 2023/12/05 12:07:27 by anmakaro          #+#    #+#             */
+/*   Updated: 2023/12/05 21:53:55 by anmakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@
 # include <stdlib.h>
 # include <wchar.h>
 # include <stddef.h>
+# include "../libft/libft.h"
 
 # define S_WLC "\n\033[0;94mWelcome to the server!\033[0m"
 # define S_PID "\033[0;96mProcess ID: \033[0m"
 # define S_END_TRANS "\033[0;90m\nА котик где?..\033[0m\n"
 
-# define C_ERROR "\n\033[6;91mAchtung Achtung !\033[0m"
+# define C_ERROR "\n\033[6;91mAchtung Achtung Achtung!\033[0m"
 # define C_ARGS "\033[38;5;214mCopy/paste server PID and add a string\033[0m"
 # define C_EX_ARGS "\033[0;92m./client 123 \"double quotation marks\"\033[0m\n"
 
