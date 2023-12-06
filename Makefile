@@ -1,84 +1,87 @@
-
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: anmakaro <anmakaro@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/05 12:29:29 by anmakaro          #+#    #+#              #
+#    Updated: 2023/12/05 21:33:12 by anmakaro         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 # Colors
-DEF_COLOR   = \033[0;39m
-GRAY        = \033[0;90m
-RED         = \033[0;91m
-GREEN       = \033[0;92m
-YELLOW      = \033[0;93m
-BLUE        = \033[0;94m
-MAGENTA     = \033[0;95m
-CYAN        = \033[0;96m
-WHITE       = \033[0;97m
-ORANGE      = \033[38;5;214m
+DEF_COLOR	= \033[0;39m
+GRAY		= \033[0;90m
+RED			= \033[0;91m
+GREEN		= \033[0;92m
+YELLOW		= \033[0;93m
+BLUE		= \033[0;94m
+MAGENTA		= \033[0;95m
+CYAN		= \033[0;96m
+WHITE		= \033[0;97m
+ORANGE		= \033[38;5;220m
+GREEN_BR	= \033[38;5;118m
 
 # Libft
-LIBFT_DIR   = libft/
-LIBFT_NAME  = libft.a
-LIBFT       = $(LIBFT_DIR)$(LIBFT_NAME)
+LIBFT_DIR	= libft/
+LIBFT_NAME	= libft.a
+LIBFT		= $(LIBFT_DIR)$(LIBFT_NAME)
 
 # Variables
-NAMECL      = client
-NAMESV      = server
-NAMECB      = client_bonus
-NAMESB      = server_bonus
-CC          = cc
-FLAGS       = -Wall -Werror -Wextra
-RM          = rm -f
-AR          = ar rcs
-NORM        = ./includes\
-                ./libft/include/\
-                ./libft/src_lib
-INCLUDE     = -I ./includes/\
-                -I ./libft/include/
+NAMECL		= client
+NAMESV		= server
+NAMECB		= client_bonus
+NAMESB		= server_bonus
+CC			= cc
+FLAGS		= -Wall -Werror -Wextra
+RM			= rm -f
+AR			= ar rcs
+INCLUDE = -I ./incs/ \
+			-I ./libft/
 
 # Sources
-SRC_DIR_MINI = src/
+SRC_DIR_MINI	= srcs/
 
 # Instructions
 all: $(LIBFT) $(NAMECL) $(NAMESV)
 
 $(LIBFT):
-    @echo "$(MAGENTA)Getting libft ready$(DEF_COLOR)"
-    @make -s -C $(LIBFT_DIR)
+	@echo "$(MAGENTA)Getting libft ready$(DEF_COLOR)"
+	@make -s -C $(LIBFT_DIR)
 
 $(NAMECL): $(LIBFT)
-    @$(RM) $(NAMECB)
-    @$(CC) $(FLAGS) $^ src/client.c -o $@ $(INCLUDE)
-    @echo "$(YELLOW)client ready!$(DEF_COLOR)"
+	@$(RM) $(NAMECB)
+	@$(CC) $(FLAGS) srcs/client.c -o $(NAMECL) $(LIBFT) $(INCLUDE)
+	@echo "$(GREEN_BR)Client is ready!$(DEF_COLOR)"
 
 $(NAMESV): $(LIBFT)
-    @$(RM) $(NAMESB)
-    @$(CC) $(FLAGS) $^ src/server.c -o $@ $(INCLUDE)
-    @echo "$(ORANGE)server ready!$(DEF_COLOR)"
+	@$(RM) $(NAMESB)
+	@$(CC) $(FLAGS) srcs/server.c -o $(NAMESV) $(LIBFT) $(INCLUDE)
+	@echo "$(ORANGE)Server is ready!$(DEF_COLOR)"
 
 bonus: $(LIBFT) $(NAMECB) $(NAMESB)
 
 $(NAMECB): $(LIBFT)
-    @$(RM) $(NAMECL)
-    @$(CC) $(FLAGS) $^ src/client_bonus.c -o $@ $(INCLUDE)
-    @echo "$(MAGENTA)client bonus ready!$(DEF_COLOR)"
+	@$(RM) $(NAMECL)
+	@$(CC) $(FLAGS) srcs/client_bonus.c -o $(NAMECB) $(LIBFT) $(INCLUDE)
+	@echo "$(MAGENTA)Client bonus is ready!$(DEF_COLOR)"
 
 $(NAMESB): $(LIBFT)
-    @$(RM) $(NAMESV)
-    @$(CC) $(FLAGS) $^ src/server_bonus.c -o $@ $(INCLUDE)
-    @echo "$(CYAN)server bonus ready!$(DEF_COLOR)"
+	@$(RM) $(NAMESV)
+	@$(CC) $(FLAGS) srcs/server_bonus.c -o $(NAMESB) $(LIBFT) $(INCLUDE)
+	@echo "$(CYAN)Server bonus is ready!$(DEF_COLOR)"
 
 clean:
-    @echo "$(YELLOW)Removing libft utils$(DEF_COLOR)"
-    @make clean -s -C $(LIBFT_DIR)
+	@echo "$(YELLOW)Removing libft$(DEF_COLOR)"
+	@make clean -s -C $(LIBFT_DIR)
 
 fclean: clean
-    @echo "$(RED)Removing minitalk...$(DEF_COLOR)"
-    @$(RM) $(NAMECL) $(NAMESV) $(NAMECB) $(NAMESB)
-    @$(RM) $(LIBFT_DIR)$(LIBFT_NAME)
+	@echo "$(RED)Removing minitalk...$(DEF_COLOR)"
+	@$(RM) $(NAMECL) $(NAMESV) $(NAMECB) $(NAMESB)
+	@$(RM) $(LIBFT_DIR)$(LIBFT_NAME)
 
 re: fclean all
-    @echo "$(BLUE)Cleaned and rebuilt everything for minitalk.$(DEF_COLOR)"
+	@echo "$(BLUE)Cleaned and rebuilt everything for minitalk.$(DEF_COLOR)"
 
-norm:
-    @which norminette > /dev/null && norminette $(SRC_DIR_MINI) $(NORM) $(LIBFT_DIR) | grep -v Norme -B1 || echo "$(RED)Norminette not found$(DEF_COLOR)"
-    @echo "Norminet the cat says : $(RED)M$(ORANGE)e$(YELLOW)o$(GREEN)w$(CYAN) !$(BLUE)!$(MAGENTA)!$(DEF_COLOR)"
-
-.PHONY: all clean fclean re norm bonus
+.PHONY: all clean fclean re bonus
