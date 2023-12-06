@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annavm <annavm@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anmakaro <anmakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 19:31:36 by annavm            #+#    #+#             */
-/*   Updated: 2023/11/26 19:31:39 by annavm           ###   ########.fr       */
+/*   Created: 2023/12/05 12:08:01 by anmakaro          #+#    #+#             */
+/*   Updated: 2023/12/05 13:16:43 by anmakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minitalk.h"
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
