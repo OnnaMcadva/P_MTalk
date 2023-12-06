@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd_v.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annavm <annavm@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anmakaro <anmakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 19:31:45 by annavm            #+#    #+#             */
-/*   Updated: 2023/11/26 19:31:47 by annavm           ###   ########.fr       */
+/*   Created: 2023/12/05 12:08:27 by anmakaro          #+#    #+#             */
+/*   Updated: 2023/12/05 13:16:51 by anmakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/minitalk.h"
+#include "libft.h"
 
 void	ft_putendl_fd_v(const char *s, int fd)
 {
