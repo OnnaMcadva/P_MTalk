@@ -58,3 +58,6 @@ int main() {
 ```
 ----------------------------------------
 https://github.com/linrock/256-colors
+
+
+![Screenshot from 2023-12-07 13-53-52](https://github.com/OnnaMcadva/42_Prague_Minitalk/assets/94723781/aea0146a-09c7-44e7-b533-0f70ad4f8f3a)
