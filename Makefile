@@ -37,14 +37,15 @@ CC			= cc
 FLAGS		= -Wall -Werror -Wextra
 RM			= rm -f
 AR			= ar rcs
-INCLUDE = -I ./incs/ \
-			-I ./libft/
+INCLUDE		= -I ./incs/ -I ./libft/
 
 # Sources
 SRC_DIR_MINI	= srcs/
 
-# Instructions
+# Targets
 all: $(LIBFT) $(NAMECL) $(NAMESV)
+
+bonus: $(LIBFT) $(NAMECB) $(NAMESB)
 
 $(LIBFT):
 	@echo "$(MAGENTA)Getting libft ready$(DEF_COLOR)"
@@ -60,8 +61,6 @@ $(NAMESV): $(LIBFT)
 	@$(CC) $(FLAGS) srcs/server.c -o $(NAMESV) $(LIBFT) $(INCLUDE)
 	@echo "$(ORANGE)Server is ready!$(DEF_COLOR)"
 
-bonus: $(LIBFT) $(NAMECB) $(NAMESB)
-
 $(NAMECB): $(LIBFT)
 	@$(RM) $(NAMECL)
 	@$(CC) $(FLAGS) srcs/client_bonus.c -o $(NAMECB) $(LIBFT) $(INCLUDE)
@@ -72,6 +71,7 @@ $(NAMESB): $(LIBFT)
 	@$(CC) $(FLAGS) srcs/server_bonus.c -o $(NAMESB) $(LIBFT) $(INCLUDE)
 	@echo "$(CYAN)Server bonus is ready!$(DEF_COLOR)"
 
+# Clean and fclean rules
 clean:
 	@echo "$(YELLOW)Removing libft$(DEF_COLOR)"
 	@make clean -s -C $(LIBFT_DIR)
@@ -81,7 +81,9 @@ fclean: clean
 	@$(RM) $(NAMECL) $(NAMESV) $(NAMECB) $(NAMESB)
 	@$(RM) $(LIBFT_DIR)$(LIBFT_NAME)
 
+# Rebuild rule
 re: fclean all
 	@echo "$(BLUE)Cleaned and rebuilt everything for minitalk.$(DEF_COLOR)"
 
-.PHONY: all clean fclean re bonus
+# Phony targets
+.PHONY: all bonus clean fclean re
