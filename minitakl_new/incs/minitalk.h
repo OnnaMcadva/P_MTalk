@@ -22,6 +22,13 @@
 # include <stddef.h>
 # include "../libft/libft.h"
 
+typedef struct s_server_state
+{
+	pid_t client_pid;
+	int bit_count;
+	unsigned char current_char;
+} t_server_state;
+
 # define S_WLC "\n\033[0;94mWelcome to the server!\033[0m"
 # define S_PID "\033[0;96mProcess ID: \033[0m"
 # define S_END_TRANS "\033[0;90m\nА котик где?..\033[0m\n"

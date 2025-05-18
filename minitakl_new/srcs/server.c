@@ -14,13 +14,6 @@
 #include <signal.h>
 #include <unistd.h>
 
-typedef struct s_server_state
-{
-	pid_t client_pid;
-	int bit_count;
-	unsigned char current_char;
-} t_server_state;
-
 static t_server_state g_state = {0, 0, 0};
 
 void	send_ack(pid_t pid)
