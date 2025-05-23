@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annavm <annavm@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anmakaro <anmakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:28:44 by anmakaro          #+#    #+#             */
-/*   Updated: 2025/05/22 22:27:00 by annavm           ###   ########.fr       */
+/*   Updated: 2025/05/23 18:57:25 by anmakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,7 @@ static void	handle_signal(int sig, siginfo_t *info, void *context)
 	(void)context;
 	if (!info->si_pid)
 		return ;
-	if (client_pid != info->si_pid)
-	{
-		client_pid = info->si_pid;
-		bit_count = 0;
-		c = 0;
-	}
+	client_pid = info->si_pid;
 	if (sig == SIGUSR1)
 		c |= (1 << (7 - bit_count));
 	if (++bit_count == 8)

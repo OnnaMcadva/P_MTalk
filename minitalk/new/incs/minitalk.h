@@ -6,15 +6,13 @@
 /*   By: anmakaro <anmakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:07:27 by anmakaro          #+#    #+#             */
-/*   Updated: 2025/05/23 13:46:26 by anmakaro         ###   ########.fr       */
+/*   Updated: 2025/05/23 18:10:33 by anmakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
 # define MINITALK_H
 
-# define _POSIX_C_SOURCE 200112L
-# define _XOPEN_SOURCE 700
 # include <signal.h>
 # include <sys/types.h>
 # include <unistd.h>
