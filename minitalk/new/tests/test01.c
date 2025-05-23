@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annavm <annavm@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anmakaro <anmakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 19:39:21 by annavm            #+#    #+#             */
-/*   Updated: 2025/05/22 22:53:53 by annavm           ###   ########.fr       */
+/*   Updated: 2025/05/23 19:18:49 by anmakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #include <string.h>
 
 int	utf8_char_size(unsigned char c) {
-	if ((c & 0x80) == 0x00) return 1;         // 0xxxxxxx - ASCII
-	else if ((c & 0xE0) == 0xC0) return 2;    // 110xxxxx
-	else if ((c & 0xF0) == 0xE0) return 3;    // 1110xxxx
-	else if ((c & 0xF8) == 0xF0) return 4;    // 11110xxx (эмодзи и т.д.)
-	else return 1; // на случай некорректного символа
+	if ((c & 0x80) == 0x00) return 1;
+	else if ((c & 0xE0) == 0xC0) return 2;
+	else if ((c & 0xF0) == 0xE0) return 3;
+	else if ((c & 0xF8) == 0xF0) return 4;
+	else return 0;
 }
 
 int	main(void) {
-	const char *str = "AЮ汉🙂"; // ASCII, русская, китайская, смайлик
+	const char *str = "A Ю汉🙂 Жопа ";
 	const unsigned char *p = (const unsigned char *)str;
 	int count = 0;
 
