@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int         ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd_v(const char *s, int fd);
 void	ft_putnbr_fd_v(int n, int fd);

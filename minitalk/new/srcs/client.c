@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annavm <annavm@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anmakaro <anmakaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:28:28 by anmakaro          #+#    #+#             */
-/*   Updated: 2025/05/22 23:23:59 by annavm           ###   ########.fr       */
+/*   Updated: 2025/05/23 14:43:45 by anmakaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ int	main(int argc, char **argv)
 	while (*str)
 		send_char(pid, *str++);
 	send_char(pid, '\0');
+	// if (g_ack_received)
+	// 	ft_putstr_fd(C_SIGN, 2);
 	return (0);
 }
