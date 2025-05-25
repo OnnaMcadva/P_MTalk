@@ -20,3 +20,6 @@ https://github.com/linrock/256-colors
 
 
 ![Screenshot from 2023-12-07 13-53-52](https://github.com/OnnaMcadva/42_Prague_Minitalk/assets/94723781/aea0146a-09c7-44e7-b533-0f70ad4f8f3a)
+
+
+![Screenshot from 2025-05-25 15-22-50](https://github.com/user-attachments/assets/2e145f4d-db65-4e86-86fb-0078304272c4)
