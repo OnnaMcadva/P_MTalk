@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 	sigaction(SIGUSR1, &sa, NULL);
 	while (*str)
 		send_char(pid, *str++);
-	send_char(pid, '\0');
+	send_char(pid, '\n');
 	if (g_ack_received)
 		ft_putstr_fd(C_SIGN, 2);
 	return (0);
