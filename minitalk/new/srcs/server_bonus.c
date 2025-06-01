@@ -21,6 +21,8 @@ static	void	handle_sigint(int sig)
 
 static int	utf8_char_size(unsigned char c)
 {
+	if (c == '\n')
+		ft_putstr_fd(S_END, 1);
 	if ((c & 0x80) == 0x00)
 		return (1);
 	else if ((c & 0xE0) == 0xC0)
